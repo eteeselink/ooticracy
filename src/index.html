@@ -1,14 +1,39 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Ooticracy</title>
-    <script type="module">
-        import {Poll} from "./poll.js";
-        const poll = new Poll(document.getElementById("hello"));
-        poll.render("George");
-    </script>
+	<title>Voting System</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			var optionNum = 2;
+			var optionArr = [];
+			$( "#addOptions" ).on("click", function() {
+	            $( "#Options" ).append( '<input type="text" name="options[] placeholder="Add Option"/><br><br>');
+	            optionNum++;
+
+	        });
+		});
+	</script>
 </head>
 <body>
-    <div id="hello">
-    </div>
+<form id="questionaire" >
+	
+<textarea name="question"></textarea>
+<input type="button" name="addOptions" id="addOptions" value="+"><br><br>
+
+<div id= "Options">
+<input type="text" name="options[1]" ><br><br>
+<input type="text" name="options[2]" ><br><br>
+	
+
+</div>
+
+
+
+<input type="submit" name="Submit">
+
+</form>
+
 </body>
 </html>
