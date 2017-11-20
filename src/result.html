@@ -2,7 +2,13 @@
 <html>
 <head>
     <title>Ooticracy</title>
-
+    <script type='text/javascript'>
+        
+            var array = JSON.parse(decodeURIComponent(location.search.substr(1)));
+            var question_array = array[0][0];
+            console.log(question_array);
+            var answer_array = array[0][1];
+        </script>
    
     <script type="module">
         import {Poll} from "./poll.js";
@@ -18,10 +24,7 @@
 
     </script>
 
-    <script type='text/javascript'>
-        var question_array = ['which fruit do you like?','data or Database?'];
-        var answer_array = ['apple','data'];
-    </script>
+    
     <sctip>
 </head>
 <body>

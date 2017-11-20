@@ -42,6 +42,7 @@ export class Question{
 
         sbutton.addEventListener ("click", () => {
             alert("Number of answers is " + this.record.length.toString());
+            location.href = "result.html?" + encodeURIComponent(JSON.stringify(this.record));
         });
 
         this.element.querySelector("#btn").addEventListener("click", ev => {
@@ -52,7 +53,7 @@ export class Question{
             ev.preventDefault();
             
             var bestPizza = this.element.querySelector("input[name=question]:checked").value;
-            this.record.push(bestPizza);
+            this.record.push([array[0],bestPizza]);
             alert("Your answer was " + this.record[this.record.length - 1]);
             // this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
             
