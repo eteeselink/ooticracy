@@ -9,7 +9,7 @@
         //poll.render("George");
 
        
-
+        var question_array = decodeURIComponent(location.search).substr(1).split(",");
         import {Question} from "./question.js";
         const question = new Question(document.getElementById("question"));
         question.render_question(question_array);
@@ -17,14 +17,16 @@
 
     </script>
 
-    <script type='text/javascript'>
-        var question_array = ['which fruit do you like?','apple','banana'];
-        function received()
-        {
-            console.log(decodeURIComponent(location.search).substr(1).split(","));
-        }
-        received();
-    </script>
+        <!-- <script type='text/javascript'>
+            var question_array = ['which fruit do you like?','apple','banana'];
+            function received()
+            {
+                //console.log(decodeURIComponent(location.search).substr(1).split(","));
+                question_array = decodeURIComponent(location.search).substr(1).split(",");
+                
+            }
+            received();
+        </script> -->
 </head>
 <body>
     <div id="hello">
