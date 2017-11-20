@@ -19,7 +19,11 @@
 
     <script type='text/javascript'>
         var question_array = ['which fruit do you like?','apple','banana'];
-       
+        function received()
+        {
+            console.log(decodeURIComponent(location.search).substr(1).split(","));
+        }
+        received();
     </script>
 </head>
 <body>

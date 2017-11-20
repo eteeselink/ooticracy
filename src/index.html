@@ -15,20 +15,22 @@
         });
         function MakeArray(ev)
         {
-            //ev.preventDefault();
+            ev.preventDefault();
             var txts = document.getElementsByName('question')[0].value;
             for (i=0; i<optionNum; i++)
             {
                txts += ',' + $(":input[name^='options']")[i].value;
             }
             alert(txts);
-            location.href = "questionnaire.html?" + encodeURIComponent(JSON.stringify(txts));
+            location.href = "questionaire.html?" + encodeURIComponent(txts);
             // JSON.parse(location.search);
+            return false;
         }
+        
 	</script>
 </head>
 <body>
-<form id="questionaire" method="GET" action="questionaire.html">
+<form id="questionaire" method="GET">
 	
 <textarea name="question" , id="question"></textarea>
 <input type="button" name="addOptions" id="addOptions" value="+"><br><br>
@@ -42,9 +44,12 @@
 
 
 
-<input type="submit" name="Submit" onclick="MakeArray()">
+<input type="submit" id="submit" name="Submit">
 
 </form>
+<script>
+    document.querySelector("#questionaire").addEventListener("submit", MakeArray);
+</script>
 
 </body>
 </html>
