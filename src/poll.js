@@ -23,6 +23,15 @@ export class Poll {
             <button id="btn">Vote!</button>
         `;
 
+        var button = document.createElement("button");
+        button.innerHTML = "Submit";
+
+        this.element.appendChild(button);
+
+        button.addEventListener ("click", function() {
+            alert("Submitted !!!");
+        });
+
         this.element.querySelector("button").addEventListener("click", ev => {
             // always add `preventDefault` in an event handler. otherwise, the browser
             // will do some default action which usually means submitting the data to the server, 
