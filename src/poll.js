@@ -21,7 +21,7 @@ export class Poll {
             <input type="radio" name="pizza" value="Lahmacun" id="radio3">
             <label for="radio3">Lahmacun</label><br>
 
-            <button id="btn">Vote!</button>
+            <button id="btn" class="yes">Vote!</button>
         `;
 
         var button = document.createElement("button");
@@ -33,15 +33,15 @@ export class Poll {
             alert("Number of answers is " + this.dict.length.toString());
         });
 
-        this.element.querySelector("button").addEventListener("click", ev => {
+        this.element.querySelector("#btn").addEventListener("click", ev => {
             // always add `preventDefault` in an event handler. otherwise, the browser
             // will do some default action which usually means submitting the data to the server, 
             // which causes the entire page to reload.
             // since we have no server, we don't want that :-)
             ev.preventDefault();
             var bestPizza = this.element.querySelector("input[name=pizza]:checked").value;
-            this.dict.push(["Mock question",bestPizza])
-            alert("Your answer was " + this.dict[this.dict.length - 1])
+            this.dict.push(["Mock question",bestPizza]);
+            alert("Your answer was " + this.dict[this.dict.length - 1]);
             // this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
             
             // makeAsciiArt(this.element.querySelector("#pizza"));
