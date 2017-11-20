@@ -6,6 +6,7 @@ export class Poll {
      */
     constructor(element) {
         this.element = element;
+        this.dict = [];
     }
 
     render(name) {
@@ -28,8 +29,8 @@ export class Poll {
 
         this.element.appendChild(button);
 
-        button.addEventListener ("click", function() {
-            alert("Submitted !!!");
+        button.addEventListener ("click", () => {
+            alert("Number of answers is " + this.dict.length.toString());
         });
 
         this.element.querySelector("button").addEventListener("click", ev => {
@@ -38,11 +39,12 @@ export class Poll {
             // which causes the entire page to reload.
             // since we have no server, we don't want that :-)
             ev.preventDefault();
-
-            const bestPizza = this.element.querySelector("input[name=pizza]:checked").value;
-            this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
+            var bestPizza = this.element.querySelector("input[name=pizza]:checked").value;
+            this.dict.push(["Mock question",bestPizza])
+            alert("Your answer was " + this.dict[this.dict.length - 1])
+            // this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
             
-            makeAsciiArt(this.element.querySelector("#pizza"));
+            // makeAsciiArt(this.element.querySelector("#pizza"));
         })
     }
 }
