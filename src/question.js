@@ -52,7 +52,7 @@ export class Question{
             ev.preventDefault();
             
             var bestPizza = this.element.querySelector("input[name=question]:checked").value;
-            this.record.push([array[0],bestPizza]);
+            this.record.push(bestPizza);
             alert("Your answer was " + this.record[this.record.length - 1]);
             // this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
             
