@@ -8,17 +8,26 @@ export class Question{
 
     
 
-
+    
 
     render_question(array){
-        this.element.innerHTML = `
+        var rendering =  `
         question:   ${array[0]} <br>
        
-        <input type="radio" name=${array[1]} value=${array[1]} id="radio1">
-        <label for="radio1">${array[1]}</label><br>
-        <input type="radio" name=${array[2]} value=${array[2]} id="radio2">
-        <label for="radio1">${array[2]}</label><br>
-        `;
+        `
+        for (var i = 1; i<array.length;i++){
+        
+        var string = `
+        <input type="radio" name=${array[i]} value=${array[i]} id="radio1">
+        <label for="radio1">${array[i]}</label><br>
+            `
+        
+        rendering = rendering.concat( string);   
+            
+        }
+
+
+        this.element.innerHTML = rendering;
 
     }
 
