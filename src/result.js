@@ -25,6 +25,7 @@ export class Result {
         this.element.innerHTML +=str;
     }
 
+
     /*
     render(answer, question) {
         var HTML = "<table border=1 width=100%><tr>";
