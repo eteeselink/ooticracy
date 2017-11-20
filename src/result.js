@@ -8,7 +8,7 @@ export class Result {
         this.element = element;
     }
     
-    render(answer, question) {
+    renderResult(answer, question, maxQuestions) {
         var i;
         var str = "";
         str =  `<table border="1"><tr>
@@ -17,13 +17,15 @@ export class Result {
             </tr>`;
         for(i=0; i<answer.length; i++){
             str+=`<tr>
-                    <td border=1> ${answer[i]} :</td>
-                    <td border=1> ${question[i]}: </td>
+                    <td border=1> ${answer[i]} </td>
+                    <td border=1> ${question[i]} </td>
                 </tr>`
         }
+
         str += `</table>`
         this.element.innerHTML +=str;
     }
+
 
 
     /*
