@@ -4,22 +4,33 @@
 	<title>Voting System</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<script type="text/javascript">
-		$( document ).ready(function() {
-			var optionNum = 2;
+    <script type="text/javascript">
+         var optionNum = 2;
+		$( document ).ready(function() {			
 			var optionArr = [];
 			$( "#addOptions" ).on("click", function() {
 	            $( "#Options" ).append( '<input type="text" name="options[] placeholder="Add Option"/><br><br>');
 	            optionNum++;
-
 	        });
-		});
+        });
+        function MakeArray(ev)
+        {
+            //ev.preventDefault();
+            var txts = document.getElementsByName('question')[0].value;
+            for (i=0; i<optionNum; i++)
+            {
+               txts += ',' + $(":input[name^='options']")[i].value;
+            }
+            alert(txts);
+            location.href = "questionnaire.html?" + encodeURIComponent(JSON.stringify(txts));
+            // JSON.parse(location.search);
+        }
 	</script>
 </head>
 <body>
 <form id="questionaire" method="GET" action="questionaire.html">
 	
-<textarea name="question"></textarea>
+<textarea name="question" , id="question"></textarea>
 <input type="button" name="addOptions" id="addOptions" value="+"><br><br>
 
 <div id= "Options">
@@ -31,7 +42,7 @@
 
 
 
-<input type="submit" name="Submit">
+<input type="submit" name="Submit" onclick="MakeArray()">
 
 </form>
 
